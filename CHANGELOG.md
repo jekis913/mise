@@ -1,5 +1,13 @@
 # Changelog
 
+## [2025.12.10](https://github.com/jdx/mise/compare/v2025.12.9..v2025.12.10) - 2025-12-16
+
+### 🐛 Bug Fixes
+
+- **(backend)** fix fuzzy_match_filter regex for vendor-prefixed versions by @jdx in [#7332](https://github.com/jdx/mise/pull/7332)
+- **(registry)** prefer claude-code latest over stale stable by @jdx in [#7334](https://github.com/jdx/mise/pull/7334)
+- **(upgrade)** only check specified tools when upgrading with tool args by @jdx in [#7331](https://github.com/jdx/mise/pull/7331)
+
 ## [2025.12.9](https://github.com/jdx/mise/compare/v2025.12.8..v2025.12.9) - 2025-12-16
 
 ### 🚀 Features
