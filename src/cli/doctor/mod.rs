@@ -16,7 +16,7 @@ use crate::plugins::PluginType;
 use crate::plugins::core::CORE_PLUGINS;
 use crate::toolset::{ToolVersion, Toolset, ToolsetBuilder};
 use crate::ui::{info, style};
-use crate::{backend, cmd, dirs, duration, env, file, shims};
+use crate::{backend, dirs, duration, env, file, shims};
 use console::{Alignment, pad_str, style};
 use heck::ToSnakeCase;
 use indexmap::IndexMap;
@@ -335,7 +335,6 @@ impl Doctor {
         let tools = ts
             .list_current_versions()
             .into_iter()
-            .filter(|(_, tv)| tv.request.is_os_supported())
             .map(|(f, tv)| match f.is_version_installed(&config, &tv, true) {
                 true => (tv.to_string(), style::nstyle("")),
                 false => {
