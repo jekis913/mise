@@ -266,6 +266,10 @@ impl Backend for UbiBackend {
         ctx: &InstallContext,
         mut tv: ToolVersion,
     ) -> eyre::Result<ToolVersion> {
+        deprecated!(
+            "ubi",
+            "The ubi backend is deprecated. Use the github backend instead (e.g., github:owner/repo)"
+        );
         // Check if lockfile has URL for this platform
         let platform_key = self.get_platform_key();
         let lockfile_url = tv

@@ -43,7 +43,7 @@ use std::sync::LazyLock as Lazy;
 
 pub mod aqua;
 pub mod asdf;
-pub mod asset_detector;
+pub mod asset_matcher;
 pub mod backend_type;
 pub mod cargo;
 pub mod conda;
@@ -1203,9 +1203,7 @@ pub trait Backend: Debug + Send + Sync {
                 );
             }
         } else if lockfile_enabled {
-            ctx.pr.set_message(format!("record size {filename}"));
-            let size = file.metadata()?.len();
-            platform_info.size = Some(size);
+            platform_info.size = Some(file.metadata()?.len());
         }
         Ok(())
     }
