@@ -2104,8 +2104,9 @@ test = ["helmwave version", "{{version}}"]
 
 [tools.heroku]
 aliases = ["heroku-cli"]
-backends = ["asdf:mise-plugins/mise-heroku-cli"]
+backends = ["npm:heroku"]
 description = "The Heroku Command Line Interface (CLI) is an essential part of using Heroku. With it, you can create and manage Heroku apps directly from the terminal"
+test = ["heroku --version", "heroku/{{version}}"]
 
 [tools.hexyl]
 backends = ["aqua:sharkdp/hexyl", "cargo:hexyl"]
@@ -3929,7 +3930,10 @@ backends = ["asdf:mise-plugins/mise-serverless"]
 description = "Serverless Framework"
 
 [tools.setup-envtest]
-backends = ["asdf:mise-plugins/mise-setup-envtest"]
+backends = [
+  "aqua:kubernetes-sigs/controller-runtime/setup-envtest",
+  "asdf:mise-plugins/mise-setup-envtest",
+]
 description = "This is a small tool that manages binaries for envtest. It can be used to download new binaries, list currently installed and available ones, and clean up versions"
 
 [tools.shell2http]
@@ -4496,7 +4500,7 @@ description = "TOML Formatter / Linter / Language Server"
 test = ["tombi --version", "tombi {{version}}"]
 
 [tools.tomcat]
-backends = ["asdf:mise-plugins/mise-tomcat"]
+backends = ["aqua:apache/tomcat", "asdf:mise-plugins/mise-tomcat"]
 description = "The Apache Tomcat® software is an open source implementation of the Jakarta Servlet, Jakarta Pages, Jakarta Expression Language, Jakarta WebSocket, Jakarta Annotations and Jakarta Authentication specifications. These specifications are part of the Jakarta EE platform"
 
 [tools.tonnage]
@@ -4849,8 +4853,10 @@ backends = ["asdf:mise-plugins/mise-xchtmlreport"]
 description = "Xcode-like HTML report for Unit and UI Tests"
 
 [tools.xcodegen]
-backends = ["asdf:mise-plugins/mise-xcodegen"]
+backends = ["github:yonaskolb/XcodeGen"]
 description = "A Swift command line tool for generating your Xcode project"
+os = ["macos"]
+test = ["xcodegen --version", "Version: {{version}}"]
 
 [tools.xcodes]
 backends = ["aqua:XcodesOrg/xcodes"]
@@ -4859,8 +4865,10 @@ os = ["macos"]
 test = ["xcodes version", "{{version}}"]
 
 [tools.xcresultparser]
-backends = ["asdf:mise-plugins/mise-xcresultparser"]
+backends = ["github:a7ex/xcresultparser"]
 description = "Parse the binary xcresult bundle from Xcode builds and testruns"
+os = ["macos"]
+test = ["xcresultparser --help", "OVERVIEW: xcresultparser"]
 
 [tools.xcsift]
 backends = ["github:ldomaradzki/xcsift"]
