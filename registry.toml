@@ -1119,7 +1119,7 @@ description = "Yet another cron alternative with a Web UI, but with much more ca
 test = ["dagu version 2>&1", "{{version}}"]
 
 [tools.danger-js]
-backends = ["asdf:mise-plugins/mise-danger-js"]
+backends = ["npm:danger"]
 description = "Danger runs during your CI process, and gives teams the chance to automate common code review chores"
 
 [tools.danger-swift]
@@ -3422,9 +3422,9 @@ backends = ["asdf:mise-plugins/mise-pipelight"]
 description = "Tiny automation pipelines. Bring CI/CD to the smallest projects. Self-hosted, Lightweight, CLI only"
 
 [tools.pipenv]
-backends = ["asdf:mise-plugins/mise-pipenv"]
-depends = ["python"]
+backends = ["pipx:pipenv"]
 description = "Python Development Workflow for Humans"
+test = ["pipenv --version", "pipenv, version {{version}}"]
 
 [tools.pipx]
 backends = ["aqua:pypa/pipx", "asdf:mise-plugins/mise-pipx"]
@@ -3476,9 +3476,9 @@ backends = [
 description = "Podman: A tool for managing OCI containers and pods"
 
 [tools.poetry]
-backends = ["asdf:mise-plugins/mise-poetry"]
-depends = ["python"]
+backends = ["pipx:poetry"]
 description = "Python packaging and dependency management made easy"
+test = ["poetry --version", "Poetry (version {{version}})"]
 
 [tools.polaris]
 backends = ["aqua:FairwindsOps/polaris", "asdf:particledecay/asdf-polaris"]
