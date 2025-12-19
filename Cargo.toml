@@ -3,7 +3,7 @@ members = ["crates/vfox", "crates/aqua-registry"]
 
 [package]
 name = "mise"
-version = "2025.12.11"
+version = "2025.12.12"
 edition = "2024"
 description = "The front-end to your dev env"
 authors = ["Jeff Dickey (@jdx)"]
@@ -250,6 +250,12 @@ pkg-url = "{ repo }/releases/download/v{ version }/mise-v{version}-linux-armv7{ 
 
 [package.metadata.cargo-machete]
 ignored = ["aws-lc-rs", "built", "cfg_aliases", "openssl", "rmcp-macros"]
+
+[package.metadata.release]
+pre-release-replacements = [
+  { file = "docs/installing-mise.md", search = "MISE_VERSION=v[0-9]+\\.[0-9]+\\.[0-9]+", replace = "MISE_VERSION=v{{version}}" },
+  { file = "docs/installing-mise.md", search = "/download/v[0-9]+\\.[0-9]+\\.[0-9]+/mise-v[0-9]+\\.[0-9]+\\.[0-9]+-linux-x64", replace = "/download/v{{version}}/mise-v{{version}}-linux-x64" },
+]
 
 [lints.rust]
 unexpected_cfgs = { level = "warn", check-cfg = [
